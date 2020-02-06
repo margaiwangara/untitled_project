@@ -6,6 +6,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  // Form Key
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +79,10 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   height: 5.0,
                 ),
+                _authForm(),
+                SizedBox(
+                  height: 5.0,
+                ),
                 InkWell(
                     onTap: () {},
                     child: Text(
@@ -90,5 +97,42 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _authForm() {}
+  _authForm() {
+    return Builder(builder: (BuildContext context) {
+      return Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Email is required';
+                }
+                return null;
+              },
+            ),
+            TextFormField(validator: (value) {
+              if (value.isEmpty) {
+                return 'Password is required';
+              }
+              return null;
+            }),
+            RaisedButton(
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Processing...'),
+                    ),
+                  );
+                }
+              },
+              child: Text('Submit'),
+            )
+          ],
+        ),
+      );
+    });
+  }
 }
