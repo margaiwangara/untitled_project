@@ -23,13 +23,13 @@ class _LoginState extends State<Login> {
           ),
         ),
         child: Center(
-          child: _authForm(),
+          child: _authFormContainer(),
         ),
       ),
     );
   }
 
-  _authForm() {
+  _authFormContainer() {
     return Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(10.0),
@@ -89,4 +89,6 @@ class _LoginState extends State<Login> {
       ),
     );
   }
+
+  _authForm() {}
 }
