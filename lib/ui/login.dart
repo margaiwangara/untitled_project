@@ -47,6 +47,22 @@ class _LoginState extends State<Login> {
             ),
           ],
         ),
+        child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15.0,
+              vertical: 10.0,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Text(
+                  'Welcome Back',
+                  style: Theme.of(context).textTheme.title,
+                ),
+              ],
+            )),
       ),
     );
   }

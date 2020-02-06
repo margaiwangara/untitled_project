@@ -8,11 +8,12 @@ ThemeData appTheme = ThemeData(
   backgroundColor: Color(0xFFF8F7F9),
   textTheme: TextTheme(
     headline: GoogleFonts.merriweather(
-        textStyle: TextStyle(
-      fontSize: 40.0,
-      fontWeight: FontWeight.w700,
-      letterSpacing: 0.9,
-    )),
+      textStyle: TextStyle(
+        fontSize: 40.0,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0.9,
+      ),
+    ),
     title: GoogleFonts.montserrat(
       textStyle: TextStyle(
         fontSize: 30.0,
