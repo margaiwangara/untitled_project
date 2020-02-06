@@ -73,6 +73,17 @@ class _LoginState extends State<Login> {
                         color: Theme.of(context).primaryColorLight,
                       ),
                 ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'Forgot your password?',
+                      style: Theme.of(context).textTheme.body1.copyWith(
+                            color: Theme.of(context).primaryColorLight,
+                          ),
+                    ))
               ],
             )),
       ),
