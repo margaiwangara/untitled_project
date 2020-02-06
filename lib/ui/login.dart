@@ -59,7 +59,19 @@ class _LoginState extends State<Login> {
               children: <Widget>[
                 Text(
                   'Welcome Back',
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .title
+                      .copyWith(color: Theme.of(context).primaryColor),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  'Login to your account',
+                  style: Theme.of(context).textTheme.subtitle.copyWith(
+                        color: Theme.of(context).primaryColorLight,
+                      ),
                 ),
               ],
             )),

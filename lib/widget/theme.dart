@@ -17,15 +17,13 @@ ThemeData appTheme = ThemeData(
     title: GoogleFonts.montserrat(
       textStyle: TextStyle(
         fontSize: 30.0,
-        fontWeight: FontWeight.w700,
-        letterSpacing: 0.9,
+        fontWeight: FontWeight.bold,
       ),
     ),
     subtitle: GoogleFonts.montserrat(
       textStyle: TextStyle(
-        fontSize: 20.0,
+        fontSize: 18.0,
         fontWeight: FontWeight.normal,
-        letterSpacing: 0.9,
       ),
     ),
     body1: GoogleFonts.montserrat(
