@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled_project/ui/auth/login.dart';
+import 'package:untitled_project/ui/auth/signup.dart';
 
 Form authForm(GlobalKey<FormState> key, String buttonText, bool signUp) {
   return Form(
@@ -8,6 +10,10 @@ Form authForm(GlobalKey<FormState> key, String buttonText, bool signUp) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         if (signUp == true) authFormField(TextInputType.text, 'Name', 'Name'),
+        if (signUp == true)
+          SizedBox(
+            height: 15.0,
+          ),
         authFormField(TextInputType.emailAddress, 'Email', 'Email'),
         SizedBox(
           height: 15.0,
@@ -97,13 +103,34 @@ Widget notAMember(String query, String reply) {
             style: Theme.of(context).textTheme.body1,
           ),
           InkWell(
-              onTap: () {},
-              child: Text(
-                reply,
-                style: Theme.of(context).textTheme.body1.copyWith(
-                      color: Theme.of(context).primaryColor,
-                    ),
-              ))
+            onTap: () {
+              if (reply == 'Sign Up')
+                return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SignUp(),
+                  ),
+                );
+              else if (reply == 'Log In')
+                return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LogIn(),
+                  ),
+                );
+              else
+                return false;
+            },
+            child: Text(
+              reply,
+              style: Theme.of(context).textTheme.body1.copyWith(
+                    color: Theme.of(context).primaryColor,
+                  ),
+            ),
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
         ],
       );
     },

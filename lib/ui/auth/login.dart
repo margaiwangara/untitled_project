@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled_project/widget/auth_form.dart';
 
 class LogIn extends StatefulWidget {
@@ -10,8 +9,6 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   // Form Key
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final Color primaryColor = Color(0xFF43cea2);
-  final Color accentColor = Color(0xFF185a9d);
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +31,17 @@ class _LogInState extends State<LogIn> {
                     center: Alignment.topLeft,
                     radius: 1.0,
                     colors: <Color>[
-                      primaryColor,
-                      accentColor,
+                      Theme.of(context).primaryColor,
+                      Theme.of(context).accentColor,
                     ],
                     tileMode: TileMode.mirror,
                   ).createShader(bounds);
                 },
                 child: Text(
                   'Untitled',
-                  style: GoogleFonts.merriweather(
-                    textStyle: TextStyle(
-                      fontSize: 35.0,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.85,
-                    ),
-                  ),
+                  style: Theme.of(context).textTheme.headline.copyWith(
+                        letterSpacing: 0.85,
+                      ),
                 ),
               ),
               SizedBox(
