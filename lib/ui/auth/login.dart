@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled_project/widget/auth_form.dart';
 
-class Login extends StatefulWidget {
+class LogIn extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _LogInState createState() => _LogInState();
 }
 
-class _LoginState extends State<Login> {
+class _LogInState extends State<LogIn> {
   // Form Key
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final Color primaryColor = Color(0xFF43cea2);
@@ -51,6 +51,9 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 30.0,
+              ),
               authForm(_formKey, 'Log In', false),
             ],
           ),
@@ -58,5 +61,4 @@ class _LoginState extends State<Login> {
       ),
     );
   }
-  
 }

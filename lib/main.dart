@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:untitled_project/widget/theme.dart';
-import 'package:untitled_project/ui/login.dart';
+import 'package:untitled_project/ui/auth/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme,
       home: Scaffold(
-        body: Login(),
+        body: LogIn(),
       ),
     );
   }

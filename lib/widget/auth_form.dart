@@ -44,7 +44,7 @@ TextFormField authFormField(
         vertical: 5.0,
         horizontal: 10.0,
       ),
-      border: UnderlineInputBorder(
+      border: OutlineInputBorder(
         borderSide: BorderSide(
           color: Colors.grey[400],
           width: 1.0,
