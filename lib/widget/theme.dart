@@ -2,10 +2,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 ThemeData appTheme = ThemeData(
-  primaryColor: Color(0xFF0F0A0A),
-  accentColor: Colors.teal,
+  primaryColor: Color(0xFF96E4DF),
+  accentColor: Color(0xFF4DCCC6),
   primaryColorLight: Colors.grey[400],
-  backgroundColor: Color(0xFFF8F7F9),
+  primaryColorDark: Colors.grey,
+  backgroundColor: Color(0xFFFFFFFF),
   textTheme: TextTheme(
     headline: GoogleFonts.merriweather(
       textStyle: TextStyle(
