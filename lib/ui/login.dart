@@ -37,7 +37,7 @@ class _LoginState extends State<Login> {
       elevation: 5.0,
       borderRadius: BorderRadius.circular(10.0),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height * 0.5,
         width: MediaQuery.of(context).size.width * 0.9,
         decoration: BoxDecoration(
           color: Theme.of(context).backgroundColor,
@@ -105,6 +105,17 @@ class _LoginState extends State<Login> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Email',
+                filled: true,
+                fillColor: Color(0xFFF1F1F1),
+                border: const OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                  borderSide: const BorderSide(
+                    style: BorderStyle.none,
+                  ),
+                ),
+              ),
               validator: (value) {
                 if (value.isEmpty) {
                   return 'Email is required';
@@ -112,24 +123,45 @@ class _LoginState extends State<Login> {
                 return null;
               },
             ),
-            TextFormField(validator: (value) {
-              if (value.isEmpty) {
-                return 'Password is required';
-              }
-              return null;
-            }),
-            RaisedButton(
-              onPressed: () {
-                if (_formKey.currentState.validate()) {
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Processing...'),
-                    ),
-                  );
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Password',
+                filled: true,
+                fillColor: const Color(0xFFF1F1F1),
+                border: const OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Password is required';
                 }
+                return null;
               },
-              child: Text('Submit'),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              child: RaisedButton(
+                onPressed: () {
+                  if (_formKey.currentState.validate()) {
+                    Scaffold.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Processing...'),
+                      ),
+                    );
+                  }
+                },
+                color: Colors.teal,
+                padding: const EdgeInsets.all(12.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Text('Submit'),
+              ),
+            ),
           ],
         ),
       );
