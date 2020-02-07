@@ -61,6 +61,20 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                         hintText: 'Your Email',
                         labelText: 'Email',
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 5.0,
+                          horizontal: 10.0,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey[300],
+                            width: 2.0,
+                            style: BorderStyle.solid,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                            10.0,
+                          ),
+                        ),
                       ),
                       style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
