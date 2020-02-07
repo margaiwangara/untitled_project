@@ -16,9 +16,11 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Colors.white),
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(color: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,9 +49,70 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
+              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        hintText: 'Your Email',
+                        labelText: 'Email',
+                      ),
+                      style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey[400],
+                      )),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Email is required';
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: 'Your Password',
+                        labelText: 'Password',
+                      ),
+                      style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey[400],
+                      )),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Password is required';
+                        }
+                        return null;
+                      },
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          return Scaffold.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Processing...'),
+                            ),
+                          );
+                        }
+                      },
+                      child: Text('Log In'),
+                    )
+                  ],
+                ),
               )
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 
