@@ -23,28 +23,65 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              ShaderMask(
-                blendMode: BlendMode.srcATop,
-                shaderCallback: (Rect bounds) {
-                  return RadialGradient(
-                    center: Alignment.topLeft,
-                    radius: 1.0,
-                    colors: <Color>[
-                      Theme.of(context).primaryColor,
-                      Theme.of(context).accentColor,
-                    ],
-                    tileMode: TileMode.mirror,
-                  ).createShader(bounds);
-                },
-                child: Text(
-                  'Untitled',
-                  style: Theme.of(context).textTheme.headline.copyWith(
-                        letterSpacing: 0.85,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Stack(
+                  overflow: Overflow.visible,
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    Positioned(
+                      bottom: -27.5,
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(50.0),
+                        clipBehavior: Clip.hardEdge,
+                        child: InkWell(
+                          child: Container(
+                            height: 55.0,
+                            width: 55.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Theme.of(context).accentColor,
+                                  Theme.of(context).primaryColor,
+                                ],
+                              ),
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: Theme.of(context).backgroundColor,
+                                size: 30.0,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
+                    ),
+                    Container(
+                      height: 125.0,
+                      width: 125.0,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor.withOpacity(0.25),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'U',
+                          style: Theme.of(context).textTheme.headline.copyWith(
+                                color: Theme.of(context).accentColor,
+                                fontSize: 60.0,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
-                height: 30.0,
+                height: 60.0,
               ),
               authForm(_formKey, 'Sign Up', true),
             ],

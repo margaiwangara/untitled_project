@@ -80,7 +80,7 @@ Widget forgotPassword() {
               child: Text(
                 'Forgot Password?',
                 style: Theme.of(context).textTheme.body1.copyWith(
-                      color: Colors.grey[400],
+                      color: Theme.of(context).primaryColor,
                       letterSpacing: 0.25,
                       fontWeight: FontWeight.w300,
                     ),
