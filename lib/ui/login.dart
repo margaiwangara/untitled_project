@@ -94,17 +94,82 @@ class _LoginState extends State<Login> {
                         return null;
                       },
                     ),
-                    RaisedButton(
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          return Scaffold.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Processing...'),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'Forgot Password?',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15.0,
+                              color: Colors.grey[400],
+                              fontWeight: FontWeight.w300,
                             ),
-                          );
-                        }
-                      },
-                      child: Text('Log In'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: <Color>[
+                                primaryColor,
+                                accentColor,
+                              ])),
+                      child: RaisedButton(
+                        color: Colors.transparent,
+                        elevation: 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            return Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Processing...'),
+                              ),
+                            );
+                          }
+                          return false;
+                        },
+                        child: Text(
+                          'Log In',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 15.0, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Text(
+                          'Dont\'t have an account? ',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 15.0,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'Sign Up',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15.0,
+                              color: primaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
                     )
                   ],
                 ),
