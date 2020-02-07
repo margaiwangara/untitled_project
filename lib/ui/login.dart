@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,28 +8,48 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   // Form Key
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final Color primaryColor = Color(0xFF43cea2);
+  final Color accentColor = Color(0xFF185a9d);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/community.jpg'),
-            fit: BoxFit.cover,
-            repeat: ImageRepeat.noRepeat,
-            alignment: Alignment.center,
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.5), BlendMode.darken),
-          ),
-        ),
-        child: Center(
-          child: _authFormContainer(),
-        ),
-      ),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(color: Colors.white),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ShaderMask(
+                blendMode: BlendMode.srcATop,
+                shaderCallback: (Rect bounds) {
+                  return RadialGradient(
+                    center: Alignment.topLeft,
+                    radius: 1.0,
+                    colors: <Color>[
+                      primaryColor,
+                      accentColor,
+                    ],
+                    tileMode: TileMode.mirror,
+                  ).createShader(bounds);
+                },
+                child: Text(
+                  'Untitled',
+                  style: GoogleFonts.merriweather(
+                    textStyle: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.85,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          )),
     );
   }
 
