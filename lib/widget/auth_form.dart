@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled_project/ui/auth/login.dart';
 import 'package:untitled_project/ui/auth/signup.dart';
+import 'package:untitled_project/ui/auth/forgot_password.dart';
 
 Form authForm(GlobalKey<FormState> key, String buttonText, bool signUp) {
   return Form(
@@ -76,7 +77,14 @@ Widget forgotPassword() {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ForgotPassword(),
+                  ),
+                );
+              },
               child: Text(
                 'Forgot Password?',
                 style: Theme.of(context).textTheme.body1.copyWith(
