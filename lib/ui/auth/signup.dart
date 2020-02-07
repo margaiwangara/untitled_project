@@ -29,16 +29,33 @@ class _SignUpState extends State<SignUp> {
                   overflow: Overflow.visible,
                   alignment: Alignment.bottomCenter,
                   children: <Widget>[
+                    Container(
+                      height: 125.0,
+                      width: 125.0,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor.withOpacity(0.25),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'U',
+                          style: Theme.of(context).textTheme.headline.copyWith(
+                                color: Theme.of(context).accentColor,
+                                fontSize: 60.0,
+                              ),
+                        ),
+                      ),
+                    ),
                     Positioned(
-                      bottom: -27.5,
+                      bottom: -20.0,
                       child: Material(
                         elevation: 5.0,
                         borderRadius: BorderRadius.circular(50.0),
                         clipBehavior: Clip.hardEdge,
                         child: InkWell(
                           child: Container(
-                            height: 55.0,
-                            width: 55.0,
+                            height: 40.0,
+                            width: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
@@ -57,23 +74,6 @@ class _SignUpState extends State<SignUp> {
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 125.0,
-                      width: 125.0,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor.withOpacity(0.25),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Text(
-                          'U',
-                          style: Theme.of(context).textTheme.headline.copyWith(
-                                color: Theme.of(context).accentColor,
-                                fontSize: 60.0,
-                              ),
                         ),
                       ),
                     ),
