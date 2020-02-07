@@ -2,8 +2,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 ThemeData appTheme = ThemeData(
-  primaryColor: Color(0xFF96E4DF),
-  accentColor: Color(0xFF4DCCC6),
+  primaryColor: Color(0xFF43CEA2),
+  accentColor: Color(0xFF185A9D),
   primaryColorLight: Colors.grey[400],
   primaryColorDark: Colors.grey,
   backgroundColor: Color(0xFFFFFFFF),
