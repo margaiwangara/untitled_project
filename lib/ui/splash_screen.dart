@@ -34,15 +34,13 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Container(
-                  child: Text(
-                    'Untitled',
-                    style: Theme.of(context).textTheme.headline.copyWith(
-                          color: Color(0xFFF5F5F5),
-                          fontSize: 50.0,
-                          letterSpacing: 0.5,
-                        ),
-                  ),
+                child: Text(
+                  'Untitled'.toUpperCase(),
+                  style: Theme.of(context).textTheme.title.copyWith(
+                        color: Color(0xFFFFFFFC),
+                        fontSize: 50.0,
+                        letterSpacing: 0.5,
+                      ),
                 ),
               ),
             ),
