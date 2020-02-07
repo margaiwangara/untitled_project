@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lipsum/lipsum.dart' as Lipsum;
+import 'package:untitled_project/widget/auth_form.dart';
 
 class ForgotPassword extends StatefulWidget {
   @override
@@ -7,6 +7,8 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +25,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   width: MediaQuery.of(context).size.width,
                   padding: const EdgeInsets.symmetric(
                     vertical: 10.0,
-                    horizontal: 10.0,
+                    horizontal: 15.0,
                   ),
                   decoration: BoxDecoration(
                       border: Border(
                     bottom: BorderSide(
-                      color: Theme.of(context).primaryColorLight,
+                      color:
+                          Theme.of(context).primaryColorLight.withOpacity(0.5),
                       width: 2.0,
                     ),
                   )),
@@ -48,12 +51,20 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[_pageIntro()],
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 25.0,
+                      horizontal: 15.0,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        _pageTop(),
+                        _pageBottom(_formKey),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -62,14 +73,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     );
   }
 
-  _pageIntro() {
-    final String forgotIntro = Lipsum.createParagraph(
-      numSentences: 3,
-    );
+  _pageTop() {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        SizedBox(
+          height: 15.0,
+        ),
         Container(
           height: 150.0,
           width: 150.0,
@@ -94,7 +105,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 color: Colors.black,
                 letterSpacing: 0.5,
                 fontSize: 25.0,
-                fontWeight: FontWeight.w300,
+                fontWeight: FontWeight.w400,
               ),
         ),
         SizedBox(
@@ -104,11 +115,27 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           'Please enter the email address associated with your account. We will email you a link to reset your password.',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.body1.copyWith(
-                color: Theme.of(context).primaryColorLight,
+                color: Theme.of(context).primaryColorDark,
                 height: 1.5,
               ),
         ),
       ],
+    );
+  }
+
+  _pageBottom(GlobalKey<FormState> formKey) {
+    return Form(
+      key: formKey,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          authFormField(TextInputType.emailAddress, 'Email', 'Email'),
+          SizedBox(
+            height: 10.0,
+          ),
+          authFormButton('Send'),
+        ],
+      ),
     );
   }
 }
